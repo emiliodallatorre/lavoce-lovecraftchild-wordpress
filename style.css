@@ -110,6 +110,27 @@ div {
     color: black;
 }
 
+.widget + .widget {
+    border-top: 1px solid #ddd;
+    margin-top: 0 !important;
+    padding-top: 16px;
+}
+
+.alignnone {
+    margin: unset !important;
+}
+
+.post-categories-in-block {
+    background-color: #ccc;
+    padding: 2px 5px 2px 5px;
+    font-size: 8px;
+    color: #777;
+}
+
+.post-tags.latest-posts-block {
+    margin-top: 0 !important;
+}
+
 /* Lato mobile */
 @media only screen and (max-width: 600px) {
     .author-bio img {
