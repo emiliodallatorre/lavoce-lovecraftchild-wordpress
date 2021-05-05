@@ -106,6 +106,10 @@ div {
     border: 1px solid #ddd;
 }
 
+.sidebar .widget-title {
+    color: black;
+}
+
 /* Lato mobile */
 @media only screen and (max-width: 600px) {
     .author-bio img {
