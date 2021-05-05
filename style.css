@@ -98,11 +98,12 @@ div {
 }
 
 .sidebar {
-    background: #fff !important;
+    background-color: #fff !important;
     color: #fff !important;
     margin-top: -120px !important;
     padding: 16px !important;
     width: 26.3% !important;
+    border: 1px solid #ddd;
 }
 
 /* Lato mobile */
