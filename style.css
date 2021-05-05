@@ -1,0 +1,122 @@
+/*
+Theme Name: Lovecraft child theme per lavoce.info.
+Theme URI:  https://andersnoren.se/teman/lovecraft-wordpress-theme/
+Description:  Tema di supporto per lavoce.info che rispecchi uno stile giornalistico di livello.
+Author:  Emilio Dalla Torre
+Textdomain:  emiliodallatorre
+Author URI:  https://emiliodallatorre.it/
+Template:  lovecraft
+Version:  0.1
+License:  GNU General Public License v2 or later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html                 
+*/
+
+/* Corregge l'altezza fra sito e titolo. */
+.post-header + .post-content {
+    margin-top: 16px;
+}
+
+/* Riduce globalmente le dimensioni del testo */
+p {
+    font-size: 14px;
+}
+
+div {
+    font-size: 14px;
+}
+
+/* Diminuisce la massima altezza dell'immagine nell'header */
+.header-image.bg-image {
+    max-height: 128px;
+}
+
+
+.heateor_sss_horizontal_sharing {
+    margin-bottom: 8px;
+    background-color: #f9f9f9;
+    max-width: fit-content;
+    padding: 4px;
+}
+
+.entry-author.co-author {
+    background-color: #f9f9f9 !important;
+    padding: 16px;
+    margin-bottom: 16px;
+}
+
+.author.vcard {
+    margin-top: 0;
+    margin-bottom: 16px;
+}
+
+.author-bio {
+    padding: unset !important;
+    margin: unset !important;
+}
+
+.credits.section.bg-dark {
+    display: none;
+}
+
+.il-punto-block {
+    padding: 32px;
+    background-color: #f9f9f9;
+}
+
+.il-punto-block h3 {
+    margin-bottom: 4px;
+    margin-top: 0;
+}
+
+.wp-block-group__inner-container {
+    padding: 32px !important;
+}
+
+.wp-block-latest-posts {
+    margin: unset;
+}
+
+.post-74121 .post-inner {
+    margin: unset !important;
+    padding: 16px !important;
+    width: 100%;
+    min-width: fit-content;
+}
+
+.post-74121 h1 {
+    padding: unset !important;
+    margin: 16px !important;
+}
+
+.post-74121 .post-header {
+    display: none;
+}
+
+.wp-block-latest-posts__list li {
+    background-color: #f9f9f9;
+    padding: 16px;
+}
+
+.sidebar {
+    background: #fff !important;
+    color: #fff !important;
+    margin-top: -120px !important;
+    padding: 16px !important;
+    width: 26.3% !important;
+}
+
+/* Lato mobile */
+@media only screen and (max-width: 600px) {
+    .author-bio img {
+        display: block;
+    }
+
+    .archive-header img {
+        display: block;
+    }
+
+    .author.vcard {
+        text-align: center;
+        display: block;
+    }
+}
