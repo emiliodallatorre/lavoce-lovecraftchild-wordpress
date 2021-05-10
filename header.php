@@ -48,6 +48,13 @@ if (function_exists('wp_body_open')) {
                 <img src="<?php echo esc_url($custom_logo_url); ?>">
                 <span class="screen-reader-text"><?php echo $blog_title; ?></span>
             </a>
+            <div class="current-date-time"><?php
+                echo strtoupper(date_i18n("l j F Y"));
+                ?></div>
+
+            <div class="header-search-form">
+            <?php get_search_form(); ?>
+            </div>
         </<?php echo $blog_title_elem; ?>>
 
         <?php elseif ($blog_description || $blog_title) : ?>
@@ -55,6 +62,7 @@ if (function_exists('wp_body_open')) {
         <<?php echo $blog_title_elem; ?> class="<?php echo esc_attr($blog_title_class); ?>">
         <a href="<?php echo esc_url(home_url()); ?>" rel="home"><?php echo $blog_title; ?></a>
     </<?php echo $blog_title_elem; ?>>
+
 
     <?php if ($blog_description) : ?>
         <h4 class="blog-tagline"><?php echo $blog_description; ?></h4>

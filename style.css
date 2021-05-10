@@ -131,6 +131,28 @@ div {
     margin-top: 0 !important;
 }
 
+.blog-logo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.current-date-time {
+    color: #C30;
+}
+
+.header-search-form {
+    margin-left: auto;
+}
+
+.header-search-form form.search-form {
+    display: flex !important;
+}
+
+.header-search-form button.search-button {
+    margin-left: 8px;
+}
+
 /* Lato mobile */
 @media only screen and (max-width: 600px) {
     .author-bio img {
@@ -144,5 +166,17 @@ div {
     .author.vcard {
         text-align: center;
         display: block;
+    }
+
+    .header-search-form {
+        display: none;
+    }
+
+    .current-date-time {
+        display: none;
+    }
+
+    .wp-block-latest-posts li {
+        margin-right: 0 !important;
     }
 }
