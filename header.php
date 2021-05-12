@@ -53,7 +53,14 @@ if (function_exists('wp_body_open')) {
                 ?></div>
 
             <div class="header-search-form">
-            <?php get_search_form(); ?>
+                <div class="addthis_toolbox addthis_default_style header-search-form">
+                    <div class="addthis_horizontal_follow_toolbox"></div>
+                </div>
+                <div>
+                    <?php get_search_form(); ?>
+                </div>
+                <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-55facbcdf9df3e3a"
+                        async="async"></script>
             </div>
         </<?php echo $blog_title_elem; ?>>
 

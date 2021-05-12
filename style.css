@@ -153,6 +153,14 @@ div {
     margin-left: 8px;
 }
 
+.wp-block-image.size-large.podcast-logo {
+    margin: 0;
+}
+
+.header.section.bg-white.small-padding {
+    padding: 0;
+}
+
 /* Lato mobile */
 @media only screen and (max-width: 600px) {
     .author-bio img {
