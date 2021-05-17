@@ -18,11 +18,19 @@ License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
 /* Riduce globalmente le dimensioni del testo */
 p {
-    font-size: 14px;
+    font-size: 15px;
 }
 
 div {
-    font-size: 14px;
+    font-size: 15px;
+}
+
+.post-content p {
+    font-size: 16px;
+}
+
+.post-content div {
+    font-size: 16px;
 }
 
 /* Diminuisce la massima altezza dell'immagine nell'header */
@@ -225,6 +233,27 @@ li.cat-item a:hover {
     padding-bottom: 12px;
 }
 
+.empty-tab-bar {
+    height: 110px;
+}
+
+html * {
+    font-family: Lucida, "Lucida Sans Unicode", "Lucida Grande", Verdana, Arial, Helvetica, sans-serif;
+}
+
+.latest-posts-block + a {
+    font-size: 18px !important;
+    display: block !important;
+    line-height: 22px !important;
+    margin-bottom: 6px !important;
+    text-decoration: unset;
+    color: black !important;
+}
+
+.latest-posts-block + a:hover {
+    color: #707070 !important;
+}
+
 /* width < 1000px */
 @media only screen and (max-width: 1000px) {
     .header-search-form {
@@ -261,5 +290,9 @@ li.cat-item a:hover {
 
     .wp-block-latest-posts li {
         margin-right: 0 !important;
+    }
+
+    .empty-tab-bar {
+        height: 0;
     }
 }
