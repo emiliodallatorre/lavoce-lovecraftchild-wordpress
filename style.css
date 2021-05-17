@@ -38,7 +38,7 @@ div {
     padding: 4px;
 }
 
-.entry-author.co-author {
+/* .entry-author.co-author {
     background-color: #f9f9f9 !important;
     padding: 16px;
     margin-bottom: 16px;
@@ -47,6 +47,19 @@ div {
 .author.vcard {
     margin-top: 0;
     margin-bottom: 16px;
+} */
+
+.entry-author.co-author {
+    padding: 25px 16px;
+    margin-bottom: 16px;
+    border: 2px solid #9ed0af;
+}
+
+.author.vcard {
+    margin-top: 0;
+    margin-bottom: 6px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #9ed0af;
 }
 
 .author-bio {
@@ -159,6 +172,34 @@ div {
 
 .header.section.bg-white.small-padding {
     padding: 0;
+}
+
+/* Corregge le classi di allineamento al centro */
+.alignwide, .alignfull {
+    margin-left: unset;
+    max-width: unset;
+    width: unset;
+}
+
+/* Colore del pulsante di ricerca */
+.search-button {
+    background-color: #9ed0af;
+}
+
+/* Colore dell'excerpt degli articoli correlati */
+small {
+    color: black;
+}
+
+/* width < 1000px */
+@media only screen and (max-width: 1000px) {
+    .header-search-form {
+        display: none;
+    }
+
+    .current-date-time {
+        display: none;
+    }
 }
 
 /* Lato mobile */
