@@ -196,6 +196,35 @@ small {
     border-bottom: 2px solid #C30;
 }
 
+/* Categorie nella sidebar */
+li.cat-item a::before {
+    content: '\f301';
+    font: 16px/1 'Genericons';
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    vertical-align: middle;
+    color: #999;
+    margin-right: 8px;
+    position: relative;
+    top: -1px;
+}
+
+li.cat-item a {
+    color: #111;
+    text-decoration: unset;
+
+}
+
+li.cat-item a:hover {
+    color: #C30;
+    text-decoration: underline;
+}
+
+.widget-content li:last-child {
+    padding-bottom: 12px;
+}
+
 /* width < 1000px */
 @media only screen and (max-width: 1000px) {
     .header-search-form {

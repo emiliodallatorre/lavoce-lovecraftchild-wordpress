@@ -260,5 +260,3 @@ function register_updated_render_block_core_latest_posts()
 
 add_action('init', 'register_updated_render_block_core_latest_posts');
 
-#add_filter('render_callback', '', 10, 3);
-
