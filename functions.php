@@ -148,7 +148,6 @@ function updated_render_block_core_latest_posts($attributes)
             $category_list = array();
             foreach ($category_array as $categories) {
                 $category_list[] = get_cat_name($categories);
-
             }
             $lister = implode(', ', $category_list);
 

@@ -158,7 +158,18 @@ if (function_exists('wp_body_open')) {
 
 <?php else :
 
-    if (get_header_image()) {
+    # if (YoastSEO()->meta->for_current_page()->open_graph_enabled) {
+	if (FALSE) {
+        $im_array = YoastSEO()->meta->for_current_page()->open_graph_images;
+		
+		$key = $value = NULL;
+		foreach ($im_array as $key => $value) {
+    		break;
+		}
+
+		$header_image = $value;
+		
+    } elseif (get_header_image()) {
         $header_image = get_header_image();
         $header_image_data = get_theme_mod('header_image_data');
         $header_image_alt = get_post_meta($header_image_data->attachment_id, '_wp_attachment_image_alt', true);

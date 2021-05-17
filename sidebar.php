@@ -1,4 +1,4 @@
-<aside class="sidebar">
+<aside class="sidebar" id="custom_sidebar">
         <?php
         if (is_active_sidebar('sidebar')) {
 
