@@ -174,8 +174,8 @@ if (function_exists('wp_body_open')) {
     }
 
     ?>
-
-    <figure class="header-image bg-image" style="background-image: url( <?php echo esc_url($header_image); ?> );">
+    <figure class="header-image bg-image"
+            style="background-image: url( <?php if (!is_singular("post")) echo "unset;"; else echo esc_url($header_image); ?> ); height: <?php if (!is_singular("post")) echo "110px"; else echo "unset"; ?>">
         <img src="<?php echo esc_url($header_image); ?>"<?php if ($header_image_alt) : ?> alt="<?php echo esc_attr($header_image_alt); ?>"<?php endif; ?> />
     </figure>
 

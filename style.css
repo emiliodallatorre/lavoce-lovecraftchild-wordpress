@@ -27,7 +27,7 @@ div {
 
 /* Diminuisce la massima altezza dell'immagine nell'header */
 .header-image.bg-image {
-    max-height: 128px;
+    max-height: 400px;
 }
 
 
@@ -189,6 +189,11 @@ div {
 /* Colore dell'excerpt degli articoli correlati */
 small {
     color: black;
+}
+
+/* Barra sotto il menu di navigazione in alto */
+.navigation {
+    border-bottom: 2px solid #C30;
 }
 
 /* width < 1000px */
