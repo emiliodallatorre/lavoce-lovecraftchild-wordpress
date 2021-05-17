@@ -19,7 +19,7 @@ function lovecraft_post_meta()
         <p class="post-author"><span><?php _e('By', 'lovecraft'); ?> </span>
             <?php
             if (function_exists('coauthors_posts_links')) {
-                coauthors_posts_links(null, null, null, null, true);
+                coauthors_posts_links(null, " e ", null, null, true);
             } else {
                 the_author_posts_link();
             } ?>
@@ -165,7 +165,7 @@ function updated_render_block_core_latest_posts($attributes)
         );
 
         if (isset($attributes['displayAuthor']) && $attributes['displayAuthor']) {
-            $author_display_name = coauthors(null, null, null, null, false);
+            $author_display_name = coauthors(null, " e ", null, null, false);
 
             /* translators: byline. %s: current author. */
             $byline = sprintf(__('by %s'), $author_display_name);
