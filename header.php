@@ -158,13 +158,12 @@ if (function_exists('wp_body_open')) {
 
 <?php else :
 
-    if (!is_page() && YoastSEO()->meta->for_current_page()->open_graph_enabled) {
+    if (is_singular("post") && YoastSEO()->meta->for_current_page()->open_graph_enabled) {
         $im_array = YoastSEO()->meta->for_current_page()->open_graph_images;
 
         foreach ($im_array as $im) {
             $header_image = $im["url"];
         }
-
     } elseif (get_header_image()) {
         $header_image = get_header_image();
         $header_image_data = get_theme_mod('header_image_data');
