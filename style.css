@@ -296,7 +296,7 @@ html * {
     position: relative;
 }
 
-a.wp-block-button__link.has-white-color.has-text-color.has-background {
+li a.wp-block-button__link.has-white-color.has-text-color.has-background {
     position: absolute;
     left: 0;
     right: 0;
