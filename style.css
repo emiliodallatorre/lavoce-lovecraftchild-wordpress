@@ -154,6 +154,15 @@ div {
     margin-top: 0 !important;
 }
 
+.post-tags a {
+    font-size: 0.5rem!important;
+}
+
+.post-tags a:before {
+    border: 9.5px solid transparent;
+    left: -9.5px;
+}
+
 .blog-logo {
     display: flex;
     flex-direction: row;
