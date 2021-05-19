@@ -281,14 +281,14 @@ html * {
 
 /* Tasto "Continua a leggere" */
 .blog-continue-reading {
-    font-size: 9px;
+    /* font-size: 9px; */
     /* background-color: rgba(158, 208, 175, 0.1); */
     display: block;
     margin-top: 5px;
     /* text-align: right; */
     text-transform: uppercase;
     vertical-align: bottom;
-    line-height: 20px;
+    /* line-height: 20px; */
     padding-right: 5px;
 }
 
