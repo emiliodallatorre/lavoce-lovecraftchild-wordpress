@@ -292,8 +292,19 @@ html * {
     padding-right: 5px;
 }
 
-.blog-continue-reading:hover {
-    background-color: #9ed0af;
+.wp-block-latest-posts.is-grid li {
+    position: relative;
+}
+
+a.wp-block-button__link.has-white-color.has-text-color.has-background {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+:root .has-background {
+    background-color: #9ed0af; /* Questa sospetto sia un'impostazione più "di sistema", ma quel verde in fin dei conti deve diventare uno dei colori principali... */
 }
 
 /* width < 1000px */
