@@ -51,9 +51,9 @@ function latest_punto()
 
     foreach ($posts as $post):
         $str = $str . "<div class='il-punto-block'>";
-        $str = $str . "<h3 style='margin-bottom: 4px'><a href='" . get_post_permalink($post->ID) . "'>" . apply_filters('the_title', $post->post_title) . "</a></h3>";
-        $str = $str . "<p class='post-date wp-block-latest-posts__post-date'>" . get_the_time(get_option('date_format'), $post->ID) . "</p>";
-        $str = $str . "<p class='post-content-custom'>" . apply_filters('the_content', $post->post_content) . "</p>";
+        $str = $str . "<a class='il-punto-titolo' style='margin-bottom: 4px' href='" . get_post_permalink($post->ID) . "'>" . apply_filters('the_title', $post->post_title) . "</a>";
+        $str = $str . "<time class='post-date wp-block-latest-posts__post-date il-punto-data'>" . get_the_time(get_option('date_format'), $post->ID) . "</time>";
+        $str = $str . "<div class='post-content-custom'>" . wpautop(apply_filters('the_content', $post->post_content)) . "</div>";
         $str = $str . "</div>";
     endforeach;
 
