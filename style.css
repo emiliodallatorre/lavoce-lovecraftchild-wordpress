@@ -97,7 +97,7 @@ div.il-punto-block div.post-content-custom p {
 
 .post-74121 .post-inner {
     margin: unset !important;
-    padding: 16px !important;
+    padding: 24px !important;
     width: 100%;
     min-width: fit-content;
 }
@@ -109,11 +109,6 @@ div.il-punto-block div.post-content-custom p {
 
 .post-74121 .post-header {
     display: none;
-}
-
-.wp-block-latest-posts__list li {
-    /* background-color: #f9f9f9; */
-    padding: 8px;
 }
 
 .sidebar {
@@ -152,11 +147,13 @@ div.il-punto-block div.post-content-custom p {
 
 .post-tags.latest-posts-block a {
     font-size: 7px !important;
+    line-height: 10px;
+    padding-bottom: 5px;
 }
 
 .post-tags.latest-posts-block a::before {
-    border: 9.5px solid transparent;
-    left: -9.5px;
+    border: 10px solid transparent;
+    left: -10px;
     border-left-width: 0;
     border-right-color: #ddd;
 }
@@ -331,6 +328,7 @@ a.wp-block-button__link.has-white-color.has-text-color.has-background {
 .il-punto-data {
     margin-top: 8px;
     margin-bottom: 12px;
+    display: none;
 }
 
 .all-articles-button div a {
