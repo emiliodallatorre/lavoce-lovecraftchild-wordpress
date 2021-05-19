@@ -218,7 +218,7 @@ function updated_render_block_core_latest_posts($attributes)
 
         $list_items_markup .=
             sprintf(
-                '<a class="wp-block-button__link has-white-color has-text-color has-background" href="%1$s">Leggi tutto »</a>',
+                '<a class="blog-continue-reading wp-block-button__link has-white-color has-text-color has-background" href="%1$s">Leggi tutto »</a>',
                 $post_link
             );
 
