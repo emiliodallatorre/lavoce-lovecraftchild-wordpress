@@ -281,19 +281,22 @@ html * {
 
 /* Tasto "Continua a leggere" */
 .blog-continue-reading {
-    font-size: 9px;
     /* background-color: rgba(158, 208, 175, 0.1); */
     display: block;
     margin-top: 5px;
     /* text-align: right; */
     text-transform: uppercase;
     vertical-align: bottom;
-    line-height: 20px;
     padding-right: 5px;
 }
 
 .wp-block-latest-posts.is-grid li {
     position: relative;
+}
+
+.wp-block-latest-posts__list li {
+    height: 310px !important;
+    margin-bottom: 32px !important;
 }
 
 a.wp-block-button__link.has-white-color.has-text-color.has-background {
