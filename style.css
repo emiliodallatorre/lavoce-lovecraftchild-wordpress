@@ -26,11 +26,13 @@ div {
 }
 
 .post-content p {
-    font-size: 16px;
+    font-size: 14px;
+    color: #5f5f5f;
 }
 
 .post-content div {
-    font-size: 16px;
+    font-size: 14px;
+    color: #5f5f5f;
 }
 
 /* Diminuisce la massima altezza dell'immagine nell'header */
@@ -114,8 +116,8 @@ div {
 }
 
 .wp-block-latest-posts__list li {
-    background-color: #f9f9f9;
-    padding: 16px;
+    /* background-color: #f9f9f9; */
+    padding: 8px;
 }
 
 .sidebar {
@@ -252,6 +254,46 @@ html * {
 
 .latest-posts-block + a:hover {
     color: #707070 !important;
+}
+
+/* Dimensione dei testi in home */
+.wp-block-latest-posts__post-excerpt {
+    font-size: 14px;
+    line-height: 18px;
+}
+
+.wp-block-latest-posts__post-author {
+    font-size: 11px !important;
+}
+
+.wp-block-latest-posts__post-date {
+    font-size: 11px;
+}
+
+.menu-item {
+    text-transform: uppercase;
+    font-size: 12px;
+}
+
+.current-date-time {
+    font-size: 9px;
+}
+
+/* Tasto "Continua a leggere" */
+.blog-continue-reading {
+    font-size: 9px;
+    /* background-color: rgba(158, 208, 175, 0.1); */
+    display: block;
+    margin-top: 5px;
+    /* text-align: right; */
+    text-transform: uppercase;
+    vertical-align: bottom;
+    line-height: 20px;
+    padding-right: 5px;
+}
+
+.blog-continue-reading:hover {
+    background-color: #9ed0af;
 }
 
 /* width < 1000px */
