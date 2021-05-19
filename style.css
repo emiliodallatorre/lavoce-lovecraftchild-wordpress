@@ -150,7 +150,7 @@ div.il-punto-block div.post-content-custom p {
     margin-top: 0 !important;
 }
 
-.post-tags a {
+.post-tags a::before {
     border: 9.5px solid transparent;
     left: -9.5px;
     border-left-width: 0;
