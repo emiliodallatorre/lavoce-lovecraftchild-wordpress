@@ -324,3 +324,35 @@ function t5_excerpt_content($content)
 
 add_filter('get_the_excerpt', 't5_excerpt_clean_up', 1);
 
+
+# Crea lo shortcode per i vari redattori
+function user_profile($atts)
+{
+    error_log(print_r("\n\n" . $atts["id"] . "\n\n", TRUE));
+
+    #$result = (    ->get_guest_author_by('login', $atts["login"]);
+    #$result = json_encode($result);
+
+    # return "";
+
+    $coauthors = (new CoAuthors_Guest_Authors());
+    $user = $coauthors->get_guest_author_by("id", $atts["id"]);
+
+    $result = sprintf(
+        '<div class="entry-author co-author">
+        <h3 class="author vcard"><span class="fn"><a href="%1$s">%2$s</a></span>
+            </h3>
+            <br>
+            <p class="author-bio">%3$s</p>
+            <div class="clear"></div>
+        </div>',
+        $user->user_url,
+        $user->display_name,
+        json_encode($coauthors->),
+    );
+
+    return $result;
+}
+
+add_shortcode('user_profile', 'user_profile');
+
