@@ -287,3 +287,40 @@ function register_updated_render_block_core_latest_posts()
 
 add_action('init', 'register_updated_render_block_core_latest_posts');
 
+
+/**
+ * Register handler for auto-generated excerpt.
+ *
+ * @wp-hook get_the_excerpt
+ * @param string $excerpt
+ * @return  string
+ */
+function t5_excerpt_clean_up($excerpt)
+{
+    if (!empty ($excerpt))
+        return $excerpt;
+
+    add_filter('the_content', 't5_excerpt_content');
+
+    return $excerpt;
+}
+
+/**
+ * Strip parts from auto-generated excerpt.
+ *
+ * @wp-hook the_content
+ * @param string $content
+ * @return  string
+ */
+function t5_excerpt_content($content)
+{
+    // Remove immediately; maybe the next post doesn't
+    // use an excerpt, but the full content.
+    remove_filter(current_filter(), __FUNCTION__);
+
+    // Fails with nested tables. Just don't do that. :)
+    return preg_replace('~<div class="wp-block-group sustain-block has-background.*</div>~ms', '', $content);
+}
+
+add_filter('get_the_excerpt', 't5_excerpt_clean_up', 1);
+
