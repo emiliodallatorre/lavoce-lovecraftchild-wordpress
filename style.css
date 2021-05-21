@@ -349,6 +349,11 @@ a.wp-block-button__link.has-white-color.has-text-color.has-background {
     .current-date-time {
         display: none;
     }
+
+    .sidebar {
+        margin-top: 32px !important;
+        width: unset !important;
+    }
 }
 
 /* Lato mobile */
@@ -380,5 +385,9 @@ a.wp-block-button__link.has-white-color.has-text-color.has-background {
 
     .empty-tab-bar {
         height: 0;
+    }
+
+    .sidebar {
+        border: none;
     }
 }
