@@ -105,7 +105,7 @@ function updated_render_block_core_latest_posts($attributes)
         }, get_categories(array("child_of" => 1467)));
         # error_log(print_r("Le categorie sono inserite manualmente.", TRUE));
     } # else
-        # (print_r("Le categorie erano già presenti.", TRUE));
+    # (print_r("Le categorie erano già presenti.", TRUE));
     # error_log(print_r($args["category__in"], TRUE));
 
     $recent_posts = get_posts($args);
@@ -177,14 +177,25 @@ function updated_render_block_core_latest_posts($attributes)
             $author_display_name = coauthors(null, " e ", null, null, false);
 
             /* translators: byline. %s: current author. */
-            $byline = sprintf(__('by %s'), $author_display_name);
+            /* $byline = sprintf(__('by %s'), $author_display_name); */
 
-            if (!empty($author_display_name)) {
+            /* if (!empty($author_display_name)) {
                 $list_items_markup .= sprintf(
                     '<div class="wp-block-latest-posts__post-author">%1$s</div>',
                     esc_html($byline)
                 );
+            } */
+
+            if (function_exists('coauthors_posts_links')) {
+                $a = coauthors_posts_links(null, " e ", null, null, false);
+            } else {
+                $a = the_author_posts_link();
             }
+
+            $list_items_markup .= sprintf(
+                '<div class="wp-block-latest-posts__post-author">%1$s</div>',
+                $a,
+            );
         }
 
         if (isset($attributes['displayPostDate']) && $attributes['displayPostDate']) {
