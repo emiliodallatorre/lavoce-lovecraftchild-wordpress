@@ -335,6 +335,10 @@ a.wp-block-button__link.has-white-color.has-text-color.has-background {
     position: unset !important;
 }
 
+.archive-header {
+    background-color: #9ed0af;
+}
+
 /* width < 1000px */
 @media only screen and (max-width: 1000px) {
     .header-search-form {
