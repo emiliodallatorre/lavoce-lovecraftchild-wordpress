@@ -249,7 +249,7 @@ html * {
 }
 
 .latest-posts-block + a {
-    font-size: 18px !important;
+    font-size: 20px !important;
     display: block !important;
     line-height: 22px !important;
     margin-bottom: 6px !important;
@@ -262,10 +262,10 @@ html * {
 }
 
 a.il-punto-titolo {
-    font-size: 18px !important;
+    font-size: 28px !important;
     display: block !important;
     line-height: 22px !important;
-    margin-bottom: 6px !important;
+    margin-bottom: 12px !important;
     text-decoration: unset;
     color: black !important;
 }
@@ -296,6 +296,7 @@ a.il-punto-titolo:hover {
 
 /* Tasto "Continua a leggere" */
 .blog-continue-reading {
+    font-size: 10px;
     /* background-color: rgba(158, 208, 175, 0.1); */
     display: block;
     margin-top: 5px;
