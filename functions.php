@@ -337,19 +337,18 @@ function user_profile($atts)
     $user = $GLOBALS['coauthors_plus']->get_coauthor_by('id', $atts["id"]);
 
     $image_regex = array();
-    preg_match("<img .{0,300}>", $user->description, $image_regex);
-    $description = wp_trim_words($user->description, 40);
+    preg_match("<img .{0,200}/>", $user->description, $image_regex);
+    $description = wp_trim_words($user->description, 20);
 
 
     error_log($image_regex[0]);
 
     $result = sprintf(
-        '<div class="entry-author co-author">
-        <h3 class="author vcard"><span class="fn"><a href="%1$s">%2$s</a></span>
-            </h3>
+        '<div class="entry-author co-author editor">
+            <div class="author-image">%3$s</div>
+            <a href="%1$s">%2$s</a></span>
             <br>
-            <p class="author-bio">%3$s%4$s</p>
-            <div class="clear"></div>
+            <div class="clear">%4$s</div>
         </div>',
         '/author/' . $user->user_nicename,
         $user->display_name,
@@ -362,3 +361,44 @@ function user_profile($atts)
 
 add_shortcode('user_profile', 'user_profile');
 
+# Crea lo shortcode per i vari redattori
+function newsletter_form($atts)
+{
+    $result = <<<EOD
+    <form name="subscribe" method="post" action="https://clientsection.contactlab.it/service/subscribe.php" class="newsletter-form">
+      Email: <input type="text" name="e" value=""/>
+      Sesso: <input type="text" name="extra[sex]" value=""/>
+      CAP: <input type="text" name="extra[cap]" value=""/>
+      Professione: <input type="text" name="extra[professione]" value=""/>
+      Titolo di studio: <input type="text" name="extra[titolo_studio]" value=""/>
+      Nazione: <input type="text" name="extra[nazione]" value=""/>
+      <!-- PRIVACY CONTROL -->
+      <p class="newsletter-form-buttons-wrapper">
+          <p class="newsletter-form-buttons">
+              <input id="p1" type="radio" name="__privacy_control" value="1" /> Accetto
+              <input type="radio" checked="checked" name="__privacy_control" value="0" /> Non accetto
+              <input type="hidden" name="g" value="1000009"/>
+              <input type="hidden" name="wfc" value="110000091274"/>
+              <input type="hidden" name="lang" value="it" />
+              <!-- ONCLICK SUBMIT VALIDATE JS -->
+              <input type="submit" name="do_subscribe"  value="Iscrivimi" onClick="return(validateWebForm());" />
+          </p>
+      </p>
+    </form>
+    <script language="JavaScript" type="text/javascript">
+      function validateWebForm() {
+    <!-- JS PRIVACY CHECK BEFORE SUBMIT -->
+      if(document.getElementById('p1').checked == false) {
+        alert("Se non accetti la privacy policy, non puoi proseguire con l'iscrizione.");
+        return false;
+      }else{
+        return true;
+      }}
+    
+    </script>
+    EOD;
+
+    return $result;
+}
+
+add_shortcode('newsletter_form', 'newsletter_form');
