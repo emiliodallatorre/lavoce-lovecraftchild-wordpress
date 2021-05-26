@@ -361,6 +361,8 @@ a.wp-block-button__link.has-white-color.has-text-color.has-background {
 
 .archive-header {
     display: inline-block;
+    /* Importante! */
+    width: 100%;
 }
 
 .newsletter-form {
@@ -382,6 +384,10 @@ a.wp-block-button__link.has-white-color.has-text-color.has-background {
 
 .newsletter-form-buttons input {
     margin-left: 8px;
+}
+
+#to-be-padded.newsletter-shrinked-form {
+    padding-bottom: 16px;
 }
 
 @media (min-width: 782px) {

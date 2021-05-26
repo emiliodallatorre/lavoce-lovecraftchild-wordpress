@@ -402,3 +402,22 @@ function newsletter_form($atts)
 }
 
 add_shortcode('newsletter_form', 'newsletter_form');
+
+
+# Abilita la ricerca dei guest authors
+/* function wpd_foo_rewrite_rule() {
+    add_rewrite_rule(
+        '\?post_type=guest-author&p=\d{0,5}',
+        'index.php?pagename=$matches[1]&param=foo',
+        'top'
+    );
+}
+add_action( 'init', 'wpd_foo_rewrite_rule' ); */
+
+function custom_rewrite_basic()
+{
+    $detail_pageid = 2;
+    add_rewrite_rule('/?post_type=guest-author&p=([0-9]{1,6})', 'index.php?page_id=' . $detail_pageid . '&page=requests&type=$matches[1]', 'top');
+}
+
+add_action('init', 'custom_rewrite_basic', 10, 0);
