@@ -390,10 +390,22 @@ a.wp-block-button__link.has-white-color.has-text-color.has-background {
     padding-bottom: 16px;
 }
 
+#app-content.styles__appChildrenContainer___1gAYY {
+    min-height: unset !important;
+}
+
 @media (min-width: 782px) {
     .author-columns .wp-block-column:not(:first-child) {
         margin-left: 8px;
     }
+}
+
+.wp-block-button__link.has-background {
+    background-color: #9ed0af;
+}
+
+#give_forms_widget-2 {
+    padding-bottom: 16px;
 }
 
 /* width < 1000px */
