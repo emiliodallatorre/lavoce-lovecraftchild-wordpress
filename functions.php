@@ -429,7 +429,7 @@ function gview($atts)
         '<iframe
             src="https://docs.google.com/viewer?url=%1$s&embedded=true"
             style="width: 600px;
-            height: 500px;">
+            height: 600px;">
         </iframe>',
         $file_link,
     );
