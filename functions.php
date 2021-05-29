@@ -332,36 +332,31 @@ function user_profile($atts)
 
     #$result = (    ->get_guest_author_by('login', $atts["login"]);
     #$result = json_encode($result);
-
-    $coauthor_slug = sanitize_user(get_query_var($atts["slug"]));
     $user = $GLOBALS['coauthors_plus']->get_coauthor_by('id', $atts["id"]);
 
     $image_regex = array();
-    preg_match("<img .{0,200}/>", $user->description, $image_regex);
-    $description = wp_trim_words($user->description, 20);
+    preg_match("<img .{0,220}\".{0,4}/>", $user->description, $image_regex);
+    $description = wp_trim_words($user->description, 24);
 
+    $image = '<' . $image_regex[0] . '>';
+    if ($image_regex[0] == "") $image = "";
 
-    error_log($image_regex[0]);
-
-    $result = sprintf(
+    return sprintf(
         '<div class="entry-author co-author editor">
             <div class="author-image">%3$s</div>
             <a href="%1$s">%2$s</a></span>
             <br>
-            <div class="clear">%4$s</div>
+            <p>%4$s</p>
         </div>',
-        '/author/' . $user->user_nicename,
+        '/archives/author/' . $user->user_nicename,
         $user->display_name,
-        '<' . $image_regex[0] . '>',
+        $image,
         $description,
     );
-
-    return $result;
 }
 
 add_shortcode('user_profile', 'user_profile');
 
-# Crea lo shortcode per i vari redattori
 function newsletter_form($atts)
 {
     $result = <<<EOD
@@ -411,17 +406,33 @@ add_shortcode('newsletter_form', 'newsletter_form');
  * https://185.34.85.109/?post_type=guest-author&p=2148
  */
 
-/* function setup_filter_rewrites()
+function adjust_permalink($permalink, $post)
 {
-    add_rewrite_rule('sok/events/([^/]*)/?', 'index.php?post_type=guest-author&p=$matches[1]', 'top');
+    $post_type = get_post_type($post);
+    if ($post_type === 'guest-author') {
+        global $coauthors_plus;
+        $author = $coauthors_plus->get_coauthor_by('ID', $post->ID);
+        $permalink = get_author_posts_url($author->ID, $author->user_nicename);
+    }
+    return $permalink;
 }
 
-add_action('init', 'setup_filter_rewrites');
+add_filter('post_type_link', 'adjust_permalink', 10, 2);
 
-function setup_filter_query_vars($query_vars)
+
+# Crea lo shortcode per la visualizzazione dei PDF
+function gview($atts)
 {
-    $query_vars[] = ["post_type"];
-    return $query_vars;
-} */
+    $file_link = $atts["file"];
 
-#add_filter('query_vars', 'setup_filter_query_vars');
+    return sprintf(
+        '<iframe
+            src="https://docs.google.com/viewer?url=%1$s&embedded=true"
+            style="width: 600px;
+            height: 500px;">
+        </iframe>',
+        $file_link,
+    );
+}
+
+add_shortcode('gview', 'gview');
