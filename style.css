@@ -390,7 +390,6 @@ a.wp-block-button__link.has-white-color.has-text-color.has-background {
     min-height: unset !important;
 }
 
-
 .wp-block-button__link.has-background {
     background-color: #9ed0af;
 }
@@ -404,7 +403,6 @@ a.wp-block-button__link.has-white-color.has-text-color.has-background {
     margin-bottom: unset;
 }
 
-
 .author-image img {
     max-width: 146px;
     max-height: 146px;
@@ -414,6 +412,14 @@ a.wp-block-button__link.has-white-color.has-text-color.has-background {
 
 .archive-description p {
     text-align: left;
+}
+
+a:link {
+    text-decoration: unset;
+}
+
+a:hover {
+    text-decoration: underline;
 }
 
 /* width < 1000px */
