@@ -102,7 +102,7 @@ function updated_render_block_core_latest_posts($attributes)
     if (!array_key_exists("category__in", $args)) {
         $args["category__in"] = array_map(function ($category) {
             return $category->cat_ID;
-        }, get_categories(array("child_of" => 1467)));
+        }, get_categories(array("child_of" => 10304)));
         # error_log(print_r("Le categorie sono inserite manualmente.", TRUE));
     } # else
     # (print_r("Le categorie erano già presenti.", TRUE));
