@@ -422,6 +422,16 @@ a:hover {
     text-decoration: underline;
 }
 
+.tablepress thead .sorting_asc,
+.tablepress thead .sorting_desc,
+.tablepress thead .sorting:hover {
+    background-color: rgba(158, 208, 175, 0.7) !important;
+}
+
+.tablepress thead th, .tablepress tfoot th {
+    background-color: rgba(158, 208, 175, 0.3) !important;
+}
+
 /* width < 1000px */
 @media only screen and (max-width: 1000px) {
     .header-search-form {
