@@ -74,7 +74,7 @@ add_shortcode('user_box', 'user_box');
 
 
 # Aggiunge gli utenti multipli sotto i post recenti
-remove_action('init', 'register_block_core_latest_posts', 10);
+remove_action('init', 'register_block_core_latest_posts');
 
 function updated_render_block_core_latest_posts($attributes)
 {
@@ -436,3 +436,37 @@ function gview($atts)
 }
 
 add_shortcode('gview', 'gview');
+
+# Modifica la priorità della ricerca degli articoli
+function order_the_results($hits)
+{
+    $priority_posts = array();
+    $regular_posts = array();
+
+    $args = array('parent' => 10304, 'fields' => 'ids');
+    $important_categories = get_categories($args);
+
+    error_log(json_encode($important_categories));
+
+    foreach ($hits[0] as $hit) {
+        $category_ids = wp_get_post_categories($hit->ID, array('fields' => 'ids'));
+
+        $important_article = false;
+        foreach ($category_ids as $category_id) {
+            if (in_array($category_id, $important_categories)) {
+                $important_article = true;
+            }
+        }
+
+        if ($important_article) {
+            $priority_posts[] = $hit;
+        } else {
+            $regular_posts[] = $hit;
+        }
+    }
+
+    $hits[0] = array_merge($priority_posts, $regular_posts);
+    return $hits;
+}
+
+# add_filter('relevanssi_hits_filter', 'order_the_results');

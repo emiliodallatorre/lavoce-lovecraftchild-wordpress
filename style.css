@@ -432,6 +432,18 @@ a:hover {
     background-color: rgba(158, 208, 175, 0.3) !important;
 }
 
+.related-box {
+    background-color: rgba(158, 208, 175, 0.7) !important;
+}
+
+.related-box:hover {
+    background-color: #9ed0af !important;
+}
+
+.related-box-button {
+    background-color: rgba(158, 208, 175, 0.7) !important;
+}
+
 /* width < 1000px */
 @media only screen and (max-width: 1000px) {
     .header-search-form {
