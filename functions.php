@@ -470,3 +470,20 @@ function order_the_results($hits)
 }
 
 # add_filter('relevanssi_hits_filter', 'order_the_results');
+
+# Cambia la mail di WordPress
+function wpb_sender_email($original_email_address)
+{
+    return 'desk@lavoce.info';
+}
+
+add_filter('wp_mail_from', 'wpb_sender_email');
+
+# Cambia il nome del mittente delle mail
+function wpb_sender_name($original_email_from)
+{
+    return 'Desk de Lavoce.info';
+}
+
+add_filter('wp_mail_from_name', 'wpb_sender_name');
+
