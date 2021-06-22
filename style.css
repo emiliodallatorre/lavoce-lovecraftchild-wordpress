@@ -444,6 +444,28 @@ a:hover {
     background-color: rgba(158, 208, 175, 0.7) !important;
 }
 
+.subcategories-list {
+    columns: 2;
+    -webkit-columns: 2;
+    -moz-columns: 2;
+    height: auto;
+    background-color: #9ed0af;
+    color: white;
+    list-style-type: none;
+    margin: 0;
+    padding-right: 16px;
+    padding-left: 16px;
+    padding-bottom: 16px;
+}
+
+.subcategories-list li.cat-item a::before {
+    content: unset;
+}
+
+.subcategories-list li.cat-item a {
+    color: white;
+}
+
 /* width < 1000px */
 @media only screen and (max-width: 1000px) {
     .header-search-form {

@@ -137,3 +137,5 @@ wp-config.php
 # uncomment the next line
 #/wp-content/themes
 # End of https://www.toptal.com/developers/gitignore/api/phpstorm+all,wordpress
+
+!/index.php
