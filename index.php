@@ -58,7 +58,7 @@
                 if (is_category()) {
                     $current_cat = get_query_var('cat'); ?>
                     <ul class="subcategories-list">
-                        <?php wp_list_categories('&title_li=&show_count=1&child_of=' . $current_cat); ?>
+                        <?php wp_list_categories('&title_li=&show_count=0&show_option_none=&child_of=' . $current_cat); ?>
                     </ul>
                 <?php } ?>
 
