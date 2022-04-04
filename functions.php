@@ -3,7 +3,7 @@
 function childtheme_parent_styles()
 {
     // enqueue style
-    wp_enqueue_style('parent', get_template_directory_uri() . '/style.css', '', '1.0.0');
+    wp_enqueue_style('parent', get_template_directory_uri() . '/style.css');
 }
 
 add_action('wp_enqueue_scripts', 'childtheme_parent_styles');
@@ -13,7 +13,7 @@ add_action('wp_enqueue_scripts', 'childtheme_parent_styles');
 # Dà il supporto agli autori multipli
 function lovecraft_post_meta()
 {
-    ?>
+?>
     <div class="post-meta">
 
         <p class="post-author"><span><?php _e('By', 'lovecraft'); ?> </span>
@@ -24,8 +24,7 @@ function lovecraft_post_meta()
                 the_author_posts_link();
             } ?>
         </p>
-        <p class="post-date"><span><?php _e('On', 'lovecraft'); ?> </span><a
-                    href="<?php the_permalink(); ?>"><?php the_time(get_option('date_format')); ?></a></p>
+        <p class="post-date"><span><?php _e('On', 'lovecraft'); ?> </span><a href="<?php the_permalink(); ?>"><?php the_time(get_option('date_format')); ?></a></p>
 
         <?php if (has_category()) : ?>
             <p class="post-categories"><span><?php _e('In', 'lovecraft'); ?> </span><?php the_category(', '); ?></p>
@@ -35,7 +34,7 @@ function lovecraft_post_meta()
 
     </div><!-- .post-meta -->
 
-    <?php
+<?php
 }
 
 # Crea lo shortcode per l'ultimo articolo della categoria "il punto"
@@ -49,7 +48,7 @@ function latest_punto()
     $str = "";
     $posts = get_posts($args);
 
-    foreach ($posts as $post):
+    foreach ($posts as $post) :
         $str = $str . "<div class='il-punto-block'>";
         $str = $str . "<a class='il-punto-titolo' style='margin-bottom: 4px' href='" . get_post_permalink($post->ID) . "'>" . apply_filters('the_title', $post->post_title) . "</a>";
         $str = $str . "<time class='post-date wp-block-latest-posts__post-date il-punto-data'>" . get_the_time(get_option('date_format'), $post->ID) . "</time>";
@@ -206,8 +205,10 @@ function updated_render_block_core_latest_posts($attributes)
             );
         }
 
-        if (isset($attributes['displayPostContent']) && $attributes['displayPostContent']
-            && isset($attributes['displayPostContentRadio']) && 'excerpt' === $attributes['displayPostContentRadio']) {
+        if (
+            isset($attributes['displayPostContent']) && $attributes['displayPostContent']
+            && isset($attributes['displayPostContentRadio']) && 'excerpt' === $attributes['displayPostContentRadio']
+        ) {
 
             $trimmed_excerpt = get_the_excerpt($post);
 
@@ -221,8 +222,10 @@ function updated_render_block_core_latest_posts($attributes)
             );
         }
 
-        if (isset($attributes['displayPostContent']) && $attributes['displayPostContent']
-            && isset($attributes['displayPostContentRadio']) && 'full_post' === $attributes['displayPostContentRadio']) {
+        if (
+            isset($attributes['displayPostContent']) && $attributes['displayPostContent']
+            && isset($attributes['displayPostContentRadio']) && 'full_post' === $attributes['displayPostContentRadio']
+        ) {
 
             $post_content = wp_kses_post(html_entity_decode($post->post_content, ENT_QUOTES, get_option('blog_charset')));
 
@@ -297,7 +300,7 @@ add_action('init', 'register_updated_render_block_core_latest_posts');
  */
 function t5_excerpt_clean_up($excerpt)
 {
-    if (!empty ($excerpt))
+    if (!empty($excerpt))
         return $excerpt;
 
     add_filter('the_content', 't5_excerpt_content');
@@ -486,4 +489,3 @@ function wpb_sender_name($original_email_from)
 }
 
 add_filter('wp_mail_from_name', 'wpb_sender_name');
-
