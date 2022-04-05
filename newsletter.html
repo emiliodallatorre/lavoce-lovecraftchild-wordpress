@@ -1,0 +1,37 @@
+<form name="subscribe" method="post" action="https://clientsection.contactlab.it/service/subscribe.php">
+    Email: <input type="text" name="e" value=""/>
+    Sesso: <input type="text" name="extra[sex]" value=""/>
+    CAP: <input type="text" name="extra[cap]" value=""/>
+    Professione: <input type="text" name="extra[professione]" value=""/>
+    Titolo di studio: <input type="text" name="extra[titolo_studio]" value=""/>
+    Nazione: <input type="text" name="extra[nazione]" value=""/>
+    <!-- PRIVACY CONTROL -->
+    <input id="p1" type="radio" name="__privacy_control" value="1"/> accetto
+    <input type="radio" checked="checked" name="__privacy_control" value="0"/> non accetto
+    <!-- CAPTCHA CONTROL -->
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <div class="g-recaptcha" data-sitekey="6Lf_qCkTAAAAADIrgt1DfnNCsfrtIq8gSBX3Whmi"></div>
+    <input type="hidden" name="g" value="1000009"/>
+    <input type="hidden" name="wfc" value="110000091274"/>
+    <input type="hidden" name="lang" value="it"/>
+    <!-- ONCLICK SUBMIT VALIDATE JS -->
+    <input type="submit" name="do_subscribe" value="Iscrivimi" onClick="return(validateWebForm());"/>
+</form>
+<script language="JavaScript" type="text/javascript">
+    function validateWebForm() {
+        <!-- JS PRIVACY CHECK BEFORE SUBMIT -->
+        if (document.getElementById('p1').checked == false) {
+            alert("Se non accetti la privacy non puoi proseguire con l\'iscrizione");
+            return false;
+        }
+        <!-- JS CAPTCHA CHECK BEFORE SUBMIT -->
+        if (grecaptcha.getResponse().length == 0) {
+            alert('Per poter proseguire valida il CAPTCHA');
+            grecaptcha.reset();
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+</script>

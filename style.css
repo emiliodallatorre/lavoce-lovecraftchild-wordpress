@@ -116,7 +116,6 @@ div.il-punto-block div.post-content-custom p {
     /* color: #fff !important; */
     margin-top: -120px !important;
     padding: 16px !important;
-    width: 26.3% !important;
     border: 1px solid #ddd;
 }
 
@@ -534,4 +533,19 @@ a:hover {
     .subcategories-list {
         display: none;
     }
+}
+
+@media (min-width: 600px) {
+    .sidebar {
+        width: 31.2% !important;
+    }
+
+    .content {
+        width: 66% !important;
+    }
+}
+
+.g-recaptcha {
+    margin: 1px;
+    padding: 1px;
 }

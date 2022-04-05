@@ -13,7 +13,7 @@ add_action('wp_enqueue_scripts', 'childtheme_parent_styles');
 # Dà il supporto agli autori multipli
 function lovecraft_post_meta()
 {
-?>
+    ?>
     <div class="post-meta">
 
         <p class="post-author"><span><?php _e('By', 'lovecraft'); ?> </span>
@@ -24,7 +24,8 @@ function lovecraft_post_meta()
                 the_author_posts_link();
             } ?>
         </p>
-        <p class="post-date"><span><?php _e('On', 'lovecraft'); ?> </span><a href="<?php the_permalink(); ?>"><?php the_time(get_option('date_format')); ?></a></p>
+        <p class="post-date"><span><?php _e('On', 'lovecraft'); ?> </span><a
+                    href="<?php the_permalink(); ?>"><?php the_time(get_option('date_format')); ?></a></p>
 
         <?php if (has_category()) : ?>
             <p class="post-categories"><span><?php _e('In', 'lovecraft'); ?> </span><?php the_category(', '); ?></p>
@@ -34,7 +35,7 @@ function lovecraft_post_meta()
 
     </div><!-- .post-meta -->
 
-<?php
+    <?php
 }
 
 # Crea lo shortcode per l'ultimo articolo della categoria "il punto"
@@ -363,35 +364,39 @@ add_shortcode('user_profile', 'user_profile');
 function newsletter_form($atts)
 {
     $result = <<<EOD
-    <form name="subscribe" method="post" action="https://clientsection.contactlab.it/service/subscribe.php" class="newsletter-form">
-      Email: <input type="text" name="e" value=""/>
-      Sesso: <input type="text" name="extra[sex]" value=""/>
-      CAP: <input type="text" name="extra[cap]" value=""/>
-      Professione: <input type="text" name="extra[professione]" value=""/>
-      Titolo di studio: <input type="text" name="extra[titolo_studio]" value=""/>
-      Nazione: <input type="text" name="extra[nazione]" value=""/>
-      <!-- PRIVACY CONTROL -->
-      <p class="newsletter-form-buttons-wrapper">
-          <p class="newsletter-form-buttons">
-              <input id="p1" type="radio" name="__privacy_control" value="1" /> Accetto
-              <input type="radio" checked="checked" name="__privacy_control" value="0" /> Non accetto
-              <input type="hidden" name="g" value="1000009"/>
-              <input type="hidden" name="wfc" value="110000091274"/>
-              <input type="hidden" name="lang" value="it" />
-              <!-- ONCLICK SUBMIT VALIDATE JS -->
-              <input type="submit" name="do_subscribe"  value="Iscrivimi" onClick="return(validateWebForm());" />
-          </p>
-      </p>
-    </form>
+    <form action="https://clientsection.contactlab.it/service/subscribe.php" method="post" name="subscribe" class="newsletter-shrinked-form">
+        <input name="e" type="text" value="" placeholder="Email" />
+        <br><br>
+    <!-- PRIVACY CONTROL -->Consenso al trattamento dei dati personali:
+    <br>
+    <input id="p1" name="__privacy_control" type="radio" value="1" /> Accetto
+    <input checked="checked" name="__privacy_control" type="radio" value="0" /> Non accetto
+      <!-- CAPTCHA CONTROL -->
+      <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+      <div class="g-recaptcha" data-sitekey="6Lf_qCkTAAAAADIrgt1DfnNCsfrtIq8gSBX3Whmi"></div>
+      <input type="hidden" name="g" value="1000009"/>
+      <input type="hidden" name="wfc" value="110000091274"/>
+      <input type="hidden" name="lang" value="it" />
+        Vuoi darci alcune informazioni aggiuntive su di te, per aiutarci a conoscerti meglio? Compila il form completo disponibile <a href="/newsletter/">qui</a>.
+        <br><br>
+    <!-- ONCLICK SUBMIT VALIDATE JS -->
+    <input name="do_subscribe" type="submit" value="Iscrivimi" /></form>
     <script language="JavaScript" type="text/javascript">
       function validateWebForm() {
-    <!-- JS PRIVACY CHECK BEFORE SUBMIT -->
-      if(document.getElementById('p1').checked == false) {
-        alert("Se non accetti la privacy policy, non puoi proseguire con l'iscrizione.");
-        return false;
-      }else{
-        return true;
-      }}
+        <!-- JS PRIVACY CHECK BEFORE SUBMIT -->
+        if(document.getElementById('p1').checked == false) {
+          alert("Se non accetti la privacy non puoi proseguire con l\'iscrizione");
+          return false;
+        }
+        <!-- JS CAPTCHA CHECK BEFORE SUBMIT -->
+        if(grecaptcha.getResponse().length == 0) {
+          alert('Per poter proseguire valida il CAPTCHA');
+          grecaptcha.reset();
+          return false;
+        }else{
+          return true;
+        }
+    }
     
     </script>
     EOD;
@@ -400,7 +405,6 @@ function newsletter_form($atts)
 }
 
 add_shortcode('newsletter_form', 'newsletter_form');
-
 
 # Abilita la ricerca dei guest authors
 
@@ -489,3 +493,6 @@ function wpb_sender_name($original_email_from)
 }
 
 add_filter('wp_mail_from_name', 'wpb_sender_name');
+
+add_filter('widget_text', 'shortcode_unautop');
+add_filter('widget_text', 'do_shortcode');
