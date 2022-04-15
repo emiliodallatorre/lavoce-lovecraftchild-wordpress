@@ -81,10 +81,10 @@ function updated_render_block_core_latest_posts($attributes)
     global $post, $block_core_latest_posts_excerpt_length;
 
     $args = array(
-        'posts_per_page' => $attributes['postsToShow'],
-        'post_status' => 'publish',
-        'order' => $attributes['order'],
-        'orderby' => $attributes['orderBy'],
+        'posts_per_page'   => $attributes['postsToShow'],
+        'post_status'      => 'publish',
+        'order'            => $attributes['order'],
+        'orderby'          => $attributes['orderBy'],
         'suppress_filters' => false,
     );
 
