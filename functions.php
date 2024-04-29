@@ -81,10 +81,10 @@ function updated_render_block_core_latest_posts($attributes)
     global $post, $block_core_latest_posts_excerpt_length;
 
     $args = array(
-        'posts_per_page'   => $attributes['postsToShow'],
-        'post_status'      => 'publish',
-        'order'            => $attributes['order'],
-        'orderby'          => $attributes['orderBy'],
+        'posts_per_page' => $attributes['postsToShow'],
+        'post_status' => 'publish',
+        'order' => $attributes['order'],
+        'orderby' => $attributes['orderBy'],
         'suppress_filters' => false,
     );
 
@@ -496,3 +496,17 @@ add_filter('wp_mail_from_name', 'wpb_sender_name');
 
 add_filter('widget_text', 'shortcode_unautop');
 add_filter('widget_text', 'do_shortcode');
+
+
+function remove_wp_filter_post_kses($response, $post, $request)
+{
+    /* if ($request['context'] === 'view') {
+        unset($post['content']['filtered']);
+    } */// if not is admin
+    // Remove the `wp_filter_post_kses` filter from the data.
+    // unset($data['post']['content']['filtered']);
+
+    return $response;
+}
+
+add_filter('rest_prepare_post', 'remove_wp_filter_post_kses', 10, 3);
