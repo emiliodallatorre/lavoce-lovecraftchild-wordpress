@@ -1,1 +1,0 @@
-# lavoce-lovecraftchild-wordpress
