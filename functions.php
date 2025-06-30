@@ -114,15 +114,9 @@ function updated_render_block_core_latest_posts( $attributes ) {
 
 		$list_items_markup .= '<li>';
 
-		if ( $attributes['displayFeaturedImage'] && has_post_thumbnail( $post ) ) {
-			$image_style = '';
-			if ( isset( $attributes['featuredImageSizeWidth'] ) ) {
-				$image_style .= sprintf( 'max-width:%spx;', $attributes['featuredImageSizeWidth'] );
-			}
-			if ( isset( $attributes['featuredImageSizeHeight'] ) ) {
-				$image_style .= sprintf( 'max-height:%spx;', $attributes['featuredImageSizeHeight'] );
-			}
-
+		// if ( ( $attributes['displayFeaturedImage'] || true ) && has_post_thumbnail( $post ) ) {
+        if(true) {
+			$image_style   = 'width:100%;aspect-ratio:16/9;object-fit:cover;display:block;height:auto;max-width:100%;';
 			$image_classes = 'wp-block-latest-posts__featured-image';
 			if ( isset( $attributes['featuredImageAlign'] ) ) {
 				$image_classes .= ' align' . $attributes['featuredImageAlign'];
@@ -135,6 +129,7 @@ function updated_render_block_core_latest_posts( $attributes ) {
 					'style' => $image_style,
 				)
 			);
+
 			if ( $attributes['addLinkToFeaturedImage'] ) {
 				$featured_image = sprintf(
 					'<a href="%1$s">%2$s</a>',

@@ -312,8 +312,16 @@ a.il-punto-titolo:hover {
 }
 
 .wp-block-latest-posts__list li {
-    height: 330px !important;
+    height: 520px !important;
     margin-bottom: 32px !important;
+}
+
+.wp-block-latest-posts__list {
+    .wp-block-latest-posts__featured-image {
+        margin-bottom: 16px;
+        border-radius: 6px;
+        overflow: hidden;
+    }
 }
 
 a.wp-block-button__link.has-white-color.has-text-color.has-background {
