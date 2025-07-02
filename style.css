@@ -316,6 +316,10 @@ a.il-punto-titolo:hover {
     margin-bottom: 32px !important;
 }
 
+.wp-block-latest-posts__list.latest-posts-no-excerpt li {
+    height: 320px !important;
+}
+
 .wp-block-latest-posts__list {
     .wp-block-latest-posts__featured-image {
         margin-bottom: 16px;
