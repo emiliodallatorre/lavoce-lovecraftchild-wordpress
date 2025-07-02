@@ -329,6 +329,7 @@ a.wp-block-button__link.has-white-color.has-text-color.has-background {
     left: 0;
     right: 0;
     bottom: 0;
+    height: auto;
 }
 
 :root .has-background {
