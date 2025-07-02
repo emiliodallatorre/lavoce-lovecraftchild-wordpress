@@ -124,7 +124,7 @@ function updated_render_block_core_latest_posts( $attributes ) {
 
 			$featured_image = get_the_post_thumbnail(
 				$post,
-				$attributes['featuredImageSizeSlug'],
+				array( 256, 144 ),
 				array(
 					'style' => $image_style,
 				)
