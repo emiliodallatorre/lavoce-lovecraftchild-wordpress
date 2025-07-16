@@ -14,11 +14,12 @@ License URI: https://www.gnu.org/licenses/gpl-2.0.html
 @import url('https://fonts.googleapis.com/css?family=Lato:400,700&subset=latin-ext');
 
 :root {
-    --primary: #9ED0AF;          /* Light turquoise */
-    --secondary: #DCEDEC;        /* Very light turquoise */
+    --primary: #A3D7D8;          /* Light turquoise */
+    /* --secondary: #DCEDEC;        /* Very light turquoise */
     --background: #FFFFFF;       /* White */
     --accent: #E54215;           /* Strong orange-red */
     --accent-light: #FFA38A;     /* Light coral/orange */
+    --canvas-dark: #5F5F5F;
 }
 
 /* Corregge l'altezza fra sito e titolo. */
@@ -37,12 +38,12 @@ div {
 
 .post-content p {
     font-size: 16px;
-    color: #5f5f5f;
+    color: var(--canvas-dark);
 }
 
 .post-content div {
     font-size: 16px;
-    color: #5f5f5f;
+    color: var(--canvas-dark);
 }
 
 /* Diminuisce la massima altezza dell'immagine nell'header */
@@ -489,7 +490,7 @@ a:hover {
 }
 
 .post-content.entry-content ul {
-    color: #5f5f5f;
+    color: var(--canvas-dark);
 }
 
 /* width < 1000px */
