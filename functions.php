@@ -114,8 +114,7 @@ function updated_render_block_core_latest_posts( $attributes ) {
 
 		$list_items_markup .= '<li>';
 
-		// if ( ( $attributes['displayFeaturedImage'] || true ) && has_post_thumbnail( $post ) ) {
-        if(true) {
+		if ( has_post_thumbnail( $post ) ) {
 			$image_style   = 'width:100%;aspect-ratio:16/9;object-fit:cover;display:block;height:auto;max-width:100%;';
 			$image_classes = 'wp-block-latest-posts__featured-image';
 			if ( isset( $attributes['featuredImageAlign'] ) ) {
@@ -124,7 +123,7 @@ function updated_render_block_core_latest_posts( $attributes ) {
 
 			$featured_image = get_the_post_thumbnail(
 				$post,
-				$attributes['featuredImageSizeSlug'],
+				array( 256, 144 ),
 				array(
 					'style' => $image_style,
 				)
