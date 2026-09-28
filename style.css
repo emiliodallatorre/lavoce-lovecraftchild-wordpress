@@ -11,8 +11,6 @@ License:  GNU General Public License v2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html                 
 */
 
-@import url('https://fonts.googleapis.com/css?family=Lato:400,700&subset=latin-ext');
-
 :root {
     --primary: #A3D7D8;          /* Light turquoise */
     /* --secondary: #DCEDEC;        /* Very light turquoise */
