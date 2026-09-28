@@ -2,6 +2,7 @@
 function childtheme_parent_styles() {
 	$theme_version = wp_get_theme()->get( 'Version' );
 	wp_enqueue_style( 'child-style', get_stylesheet_uri(), array( 'lovecraft_style' ), $theme_version );
+	wp_enqueue_style( 'wp-block-latest-posts' );
 }
 add_action( 'wp_enqueue_scripts', 'childtheme_parent_styles', 20 );
 
@@ -71,8 +72,6 @@ add_shortcode( 'user_box', 'user_box' );
 
 
 # Aggiunge gli utenti multipli sotto i post recenti
-remove_action( 'init', 'register_block_core_latest_posts' );
-
 function updated_render_block_core_latest_posts( $attributes ) {
 	global $post, $block_core_latest_posts_excerpt_length;
 
@@ -269,16 +268,16 @@ function updated_render_block_core_latest_posts( $attributes ) {
 	);
 }
 
-function register_updated_render_block_core_latest_posts() {
-	register_block_type_from_metadata(
-		__DIR__ . '/latest-posts',
-		array(
-			'render_callback' => 'updated_render_block_core_latest_posts',
-		),
-	);
+# Modifica il render del blocco core/latest-posts per supportare gli autori multipli
+function lavoce_override_latest_posts_render_callback( $args, $block_type ) {
+	if ( 'core/latest-posts' === $block_type ) {
+		$args['render_callback'] = 'updated_render_block_core_latest_posts';
+	}
+
+	return $args;
 }
 
-add_action( 'init', 'register_updated_render_block_core_latest_posts' );
+add_filter( 'register_block_type_args', 'lavoce_override_latest_posts_render_callback', 10, 2 );
 
 
 /**

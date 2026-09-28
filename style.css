@@ -6,7 +6,7 @@ Author:  Emilio Dalla Torre
 Textdomain:  emiliodallatorre
 Author URI:  https://emiliodallatorre.it/
 Template:  lovecraft
-Version:  0.2
+Version:  0.3
 License:  GNU General Public License v2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html                 
 */
@@ -100,8 +100,23 @@ div.il-punto-block div.post-content-custom p {
     padding: 32px !important;
 }
 
-.wp-block-latest-posts {
+.wp-block-latest-posts,
+.wp-block-latest-posts.wp-block-latest-posts__list,
+.post-content ul.wp-block-latest-posts,
+.post-content ul.wp-block-latest-posts__list {
+    list-style: none !important;
+    list-style-type: none !important;
+    padding-left: 0 !important;
+    margin-left: 0 !important;
     margin: unset;
+}
+
+.wp-block-latest-posts li,
+.wp-block-latest-posts__list li,
+.post-content .wp-block-latest-posts li,
+.post-content .wp-block-latest-posts__list li {
+    list-style: none !important;
+    list-style-type: none !important;
 }
 
 .post-74121 .post-inner {
@@ -314,8 +329,30 @@ a.il-punto-titolo:hover {
     padding-right: 5px;
 }
 
-.wp-block-latest-posts.is-grid li {
+.wp-block-latest-posts.is-grid,
+.wp-block-latest-posts__list.is-grid {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    padding: 0 !important;
+}
+
+.wp-block-latest-posts.is-grid li,
+.wp-block-latest-posts__list.is-grid li {
     position: relative;
+    box-sizing: border-box;
+}
+
+@media (min-width: 600px) {
+    .wp-block-latest-posts.is-grid.columns-2 li,
+    .wp-block-latest-posts__list.is-grid.columns-2 li {
+        width: calc(50% - 16px) !important;
+        margin-right: 32px !important;
+    }
+
+    .wp-block-latest-posts.is-grid.columns-2 li:nth-child(2n),
+    .wp-block-latest-posts__list.is-grid.columns-2 li:nth-child(2n) {
+        margin-right: 0 !important;
+    }
 }
 
 .wp-block-latest-posts__list li {
@@ -327,12 +364,10 @@ a.il-punto-titolo:hover {
     height: 390px !important;
 }
 
-.wp-block-latest-posts__list {
-    .wp-block-latest-posts__featured-image {
-        margin-bottom: 16px;
-        border-radius: 6px;
-        overflow: hidden;
-    }
+.wp-block-latest-posts__list .wp-block-latest-posts__featured-image {
+    margin-bottom: 16px;
+    border-radius: 6px;
+    overflow: hidden;
 }
 
 a.wp-block-button__link.has-white-color.has-text-color.has-background {
@@ -537,6 +572,14 @@ a:hover {
     }
 
     .wp-block-latest-posts li {
+        margin-right: 0 !important;
+    }
+
+    .wp-block-latest-posts__list li {
+        height: auto !important;
+        min-height: 480px;
+        padding-bottom: 45px;
+        width: 100% !important;
         margin-right: 0 !important;
     }
 
