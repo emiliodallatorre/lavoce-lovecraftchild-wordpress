@@ -148,30 +148,19 @@ if (function_exists('wp_body_open')) {
         <?php the_post_thumbnail('post-image-cover'); ?>
     </figure>
 
-<?php else :
-
-    /*if (is_singular("post") && YoastSEO()->meta->for_current_page()->open_graph_enabled) {
-        $im_array = YoastSEO()->meta->for_current_page()->open_graph_images;
-
-        foreach ($im_array as $im)
-            $header_image = $im["url"];
-
-    } */
-    if (get_header_image()) {
-        $header_image = get_header_image();
-        $header_image_data = get_theme_mod('header_image_data');
-        $header_image_alt = get_post_meta($header_image_data->attachment_id, '_wp_attachment_image_alt', true);
-    } else {
-        $header_image = get_template_directory_uri() . '/assets/images/header.jpg';
-        $header_image_alt = get_bloginfo('name');
-        $header_image = NULL;
-    }
-
+<?php elseif (is_singular('post') && get_header_image()) :
+    $header_image = get_header_image();
+    $header_image_data = get_theme_mod('header_image_data');
+    $header_image_alt = $header_image_data ? get_post_meta($header_image_data->attachment_id, '_wp_attachment_image_alt', true) : get_bloginfo('name');
     ?>
-    <figure class="header-image bg-image <?php if (!is_singular("post") || $header_image == NULL) echo "empty-tab-bar"; else echo ""; ?>"
-            style="background-image:  <?php if (!is_singular("post")) echo "unset;"; else echo "url(" . esc_url($header_image) . ")"; ?>;">
+
+    <figure class="header-image bg-image" style="background-image: url( <?php echo esc_url($header_image); ?> );">
         <img src="<?php echo esc_url($header_image); ?>"<?php if ($header_image_alt) : ?> alt="<?php echo esc_attr($header_image_alt); ?>"<?php endif; ?> />
     </figure>
+
+<?php else : ?>
+
+    <figure class="header-image bg-image empty-tab-bar"></figure>
 
 <?php endif; ?>
 
