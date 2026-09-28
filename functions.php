@@ -1,6 +1,7 @@
 <?php
 function childtheme_parent_styles() {
-	wp_enqueue_style( 'child-style', get_stylesheet_uri(), array( 'lovecraft_style' ) );
+	$theme_version = wp_get_theme()->get( 'Version' );
+	wp_enqueue_style( 'child-style', get_stylesheet_uri(), array( 'lovecraft_style' ), $theme_version );
 }
 add_action( 'wp_enqueue_scripts', 'childtheme_parent_styles', 20 );
 
