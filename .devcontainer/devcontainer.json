@@ -1,0 +1,21 @@
+{
+  "name": "PHP 8.1",
+  "image": "mcr.microsoft.com/devcontainers/php:8.1",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "bmewburn.vscode-intelephense-client",
+        "junstyle.php-cs-fixer"
+      ],
+      "settings": {
+        "php.suggest.basic": false,
+        "intelephense.environment.phpVersion": "8.1",
+        "intelephense.diagnostics.enable": true,
+        "[php]": {
+          "editor.defaultFormatter": "junstyle.php-cs-fixer",
+          "editor.formatOnSave": true
+        }
+      }
+    }
+  }
+}
